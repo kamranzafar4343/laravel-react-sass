@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Feature;
+use App\Models\Package;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
