@@ -7,7 +7,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
+        'canLogin' => Route::has('login'), 
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
@@ -22,6 +22,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    
+    // 👉 Add your feature pages here
+    Route::get('/feature1', function () {
+        return Inertia::render('Feature1/Index');
+    })->name('feature1.index');
+
+    Route::get('/feature2', function () {
+        return Inertia::render('Feature2/Index');
+    })->name('feature2.index');
 });
 
 require __DIR__.'/auth.php';
