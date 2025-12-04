@@ -48,4 +48,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function decreaseCredits($amount)
+{
+    $this->available_credits = max(0, $this->available_credits - $amount);
+    $this->save();
+}
+
 }

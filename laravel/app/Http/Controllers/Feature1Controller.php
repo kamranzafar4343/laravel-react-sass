@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+// dd("Feature1 controller running");
 
 use App\Http\Resources\FeatureResource;
 use App\Models\Feature;
@@ -48,7 +49,7 @@ class Feature1Controller extends Controller
             'data' => $data
         ]);
 
-        return to_route('feature1.index')->width('answer', $number1 +
+        return to_route('feature1.index')->with('answer', $number1 +
         $number2);
     }
 }
