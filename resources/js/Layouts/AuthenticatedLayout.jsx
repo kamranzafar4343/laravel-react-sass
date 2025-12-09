@@ -4,6 +4,8 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import coin from '@/assets/coin.png';
+
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;
@@ -23,7 +25,7 @@ export default function AuthenticatedLayout({ header, children }) {
                                 </Link>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
                                 <NavLink
                                     href={route('dashboard')}
                                     active={route().current('dashboard')}
@@ -47,9 +49,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
                             <span className='hidden sm:flex sm:items-center'>
-                                <img src="coin.png" alt="coing img" 
-                                className="w-[30px]"
-                                />
+                            <img src={coin} alt="coin" className="w-[30px]" />
                             </span>
                             {user.available_credits} Credits
                             <Link
@@ -210,7 +210,11 @@ export default function AuthenticatedLayout({ header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main> 
+                <div className="my-6">
+
+                </div>
+                {children}</main>
         </div>
     );
 }
