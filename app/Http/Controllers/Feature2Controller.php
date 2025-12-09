@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class Feature2Controller extends Controller
 {
-    public ?Feature $feature = null; 
+    public ?Feature $feature = null;  
     public function __construct(){
         $this->feature = Feature::where("route_name", "feature2.index")
             ->where('active', true)
@@ -49,7 +49,7 @@ class Feature2Controller extends Controller
             'data' => $data
         ]);
 
-        return to_route('feature2.index')->with('answer', $number1 +
+        return to_route('feature2.index')->with('answer', $number1 -
         $number2);
     }
 }
