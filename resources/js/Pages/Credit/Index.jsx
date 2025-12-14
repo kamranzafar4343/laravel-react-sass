@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import CreditPricingCards from "@/Components/CreditsPricingCards";
+import PackagesPricingCards from "@/Components/PackagesPricingCards";
 
 export default function Index({auth, packages, features, success, error}){
 
@@ -38,13 +38,13 @@ export default function Index({auth, packages, features, success, error}){
                         p-4">
                             <img src="/img/coin.png"
                              alt="" 
-                             className="w-[100px]" />
+                             className="w-[100px]" /> 
                              <h3 className="text-white text-2xl">
                                 You have {availableCredits} credits.
                              </h3>
                         </div>
                     </div>
-                    <CreditPricingCards packages={packages.data} 
+                    <PackagesPricingCards packages={packages.data} 
                     features={features.data} />
                 </div>
 

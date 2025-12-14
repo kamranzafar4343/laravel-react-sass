@@ -53,7 +53,7 @@ export default function AuthenticatedLayout({ header, children }) {
                             </span>
                             {user.available_credits} Credits
                             <Link
-                            href='/'
+                            href={route(credit.index)}
                             className="text-blue py-1 px-3 rounded
                             border transition-colors
                             hover:bg-blue-600 hover:text-white
