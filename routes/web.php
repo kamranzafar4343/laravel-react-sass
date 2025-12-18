@@ -20,8 +20,6 @@ Route::get('/', function () {
 Route::post('/buy-credits/webhook', [CreditController::class, 'webhook'])
 ->name('credit.webhook');
 
-
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,14 +28,11 @@ Route::get('/dashboard', function () {
     Route::get('/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
     Route::post('/feature2', [Feature1Controller::class, 'calculate'])->name('feature2.calculate');
 
-   Route::get('/buy-credits', [CreditController::class, 'index'])
-   ->name('credit.index');
-
+    Route::get('/buy-credits', [CreditController::class, 'index'])->name('credit.index');
    Route::get('/buy-credits/success', [CreditController::class, 'success'])
    ->name('credit.success');
    Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])
    ->name('credit.cancel');
-
    Route::get('/buy-credits/{package}', [CreditController::class, 
    'buyCredits'])
    ->name('credit.buy');
@@ -47,15 +42,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
-    // 👉 Add your feature pages here
-    // Route::get('/feature1', function () {
-    //     return Inertia::render('Feature1/Index');
-    // })->name('feature1.index');
-
-    // Route::get('/feature2', function () {
-    //     return Inertia::render('Feature2/Index');
-    // })->name('feature2.index');
 });
 
 require __DIR__.'/auth.php';
