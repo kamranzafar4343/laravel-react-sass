@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
    ->name('credit.success');
    Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])
    ->name('credit.cancel');
-   Route::get('/buy-credits/{package}', [CreditController::class, 
+   Route::post('/buy-credits/{package}', [CreditController::class, 
    'buyCredits'])
    ->name('credit.buy');
 

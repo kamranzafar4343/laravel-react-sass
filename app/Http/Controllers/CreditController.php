@@ -24,45 +24,48 @@ class CreditController extends Controller
 
     }
 
-    public function buyCredits(Package $package){
+    public function buyCredits(Package $package)
+{
+    $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
 
-        $stripe = new \Stripe\StripeClient(
-            env('STRIPE_SECRET_KEY')
-        );
-
-        $checkout_session = $stripe->checkout->sessions->create([
-
-            'line_items' => [
-                'price_data' => [
-                    'currency' => 'usd',
-                    'product_data' => [
-                        'name' =>$package->name.' - '.
-                        $package->credits . ' credits',
-                    ],
-                    'unit_amount' => $package->price * 100,
+    $checkout_session = $stripe->checkout->sessions->create([
+        'line_items' => [[            // <--- FIXED (double array)
+            'price_data' => [
+                'currency' => 'usd',
+                'product_data' => [
+                    'name' => $package->name . ' - ' . $package->credits . ' credits',
                 ],
-                'quantity' => 1,
+                'unit_amount' => (int)($package->price * 100),  // <--- must be integer
             ],
-            'mode' => 'payment',
-            'success_url' => route('credit.success', [], true),
-            'cancel_url' => route('credit.cancel', [], true),
-        ]);
+            'quantity' => 1,
+        ]],
+        
+        'mode' => 'payment',
+        'success_url' => route('credit.success', [], true),
+        'cancel_url' => route('credit.cancel', [], true),
+        'metadata' => [
+            'user_id' => Auth::id(),
+            'package_id' => $package->id,
+            'credits' => $package->credits,
+        ],
+    ]);
 
-        Transaction::create([
-           'status' => 'pending',
-           'price' => $package->price,
-           'credits' => $package->credits,
-           'session_id' => $checkout_session->id,
-           'user_id' => Auth::id(),
-           'packages_id' => $package->id, 
-        ]);
+    Transaction::create([
+        'status' => 'pending',
+        'price' => $package->price,
+        'credits' => $package->credits,
+        'session_id' => $checkout_session->id,
+        'user_id' => Auth::id(),
+        'packages_id' => $package->id,
+    ]);
 
-        return redirect($checkout_session->url);
-    }
+    return redirect($checkout_session->url);
+}
+
 
     public function success(){
 
-        return to_route('Credit.index')
+        return to_route('credit.index')
         ->with('success', 'You successfully bought new credits');
     }
 
