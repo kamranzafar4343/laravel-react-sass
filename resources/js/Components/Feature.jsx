@@ -67,3 +67,37 @@ export default function Feature({ feature, answer, children }) {
         </AuthenticatedLayout>
     );
 }
+
+
+// ✅ In your project, Feature.jsx is used for one purpose:
+// It renders each individual benefit/feature under every pricing package.
+
+// You have many features (like "Fast processing", "Priority support", etc.) stored in the database → sent to frontend → shown inside pricing cards.
+
+// Your pricing card maps like this:
+
+// {features.map((feature) => (
+//     <Feature feature={feature} key={feature.id} />
+// ))}
+
+// 🔹 So the use of Feature.jsx in your project is:
+
+// To make the pricing page cleaner by displaying each feature in a small reusable component instead of repeating the same UI code.
+
+// 📌 Why it's helpful?
+
+// Avoids writing long repeated <li> code inside the pricing cards
+
+// Makes your UI cleaner and easier to edit
+
+// You can redesign features in ONE place and it updates everywhere
+
+// Example in your UI:
+
+// Your final cards show:
+
+// ✔ Unlimited Access
+// ✔ Premium Speed
+// ✔ Priority API
+
+// Each checkbox feature comes from Feature.jsx.
