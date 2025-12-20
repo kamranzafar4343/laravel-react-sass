@@ -94,23 +94,15 @@ npm install && npm run dev
 🛠 Build for production
 npm run build
 
-📝 License
-
-This project is open-source and available under the MIT License.
-
-
----
-
-If you want, I can also generate:
-
-👉 A **GitHub profile-level README**  
-👉 Screenshots section  
-👉 A **project logo**  
-👉 Badges (Laravel version, React version, License, etc.)
 
 ## For Testing 
 Card Number: 4242 4242 4242 4242
 Expiry Date: Any future date (e.g., 12/34)
 CVC: Any 3 digits (e.g., 123)
 ZIP: Any 5 digits (e.g., 12345)
+
+📝 License
+
+This project is open-source and available under the MIT License.
+
 
