@@ -1,7 +1,7 @@
 # Laravel + React + SASS Starter Kit
 
 A lightweight starter project using **Laravel (API Backend)**, **React + Inertia.js (SPA Frontend)**, and **SASS Styling**.  
-Ideal for learning modern full-stack development: Auth, CRUD, Routing, Middleware, Testing, and SPA workflows.
+Auth, CRUD, Routing, Middleware, Testing(PEST), and SPA workflows
 
 ---
 
@@ -59,15 +59,8 @@ routes/web.php        ← App routes
 
 🔐 Authentication
 
-This project supports:
-
 Login / Register
-
 Logout
-
-Password Reset
-
-Email Verification (if enabled)
 
 If Breeze is not installed:
 
@@ -78,37 +71,29 @@ npm install && npm run dev
 ✨ Features
 
 ✔ Laravel + React SPA with Inertia
-
 ✔ Authentication scaffolding
-
 ✔ Pages, Layouts, Components structure
-
 ✔ SASS styling support
-
 ✔ Protected routes & middleware example
-
 ✔ Ready for CRUD modules
 
-🧪 Stripe Test Payments (if enabled)
 
-Use test card to simulate payments:
+🧪 Stripe Test Payments(use this Test card)
 
-Field	Value
-Card Number	4242 4242 4242 4242
-Expiry	Any future date (12/34)
-CVC	Any (123)
-ZIP	Any (12345)
+Card Number:	4242 4242 4242 4242
+Expiry:	Any future date (12/34)
+CVC	Any: (123)
+ZIP	Any: (12345)
+
 🛠 Build for Production
 npm run build
 php artisan optimize
 
-📝 License
 
+📝 License
 This project is open-source under the MIT License.
 
-🙋‍♂️ Contributing / Issues?
-
+Contributing / Issues?
 Feel free to fork, improve, and open PRs.
-Happy coding! 🚀
 
 **Want a version that feels like a commercial SaaS starter?**
