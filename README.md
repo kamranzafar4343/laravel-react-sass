@@ -15,7 +15,6 @@ A lightweight starter project using **Laravel (API Backend)**, **React + Inertia
 | DB | MySQL / SQLite |
 | Testing | PestPHP / PHPUnit |
 
----
 
 📁 Project Structure
 app/                  ← Laravel backend (routes, controllers, models)
