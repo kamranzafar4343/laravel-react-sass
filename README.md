@@ -1,80 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel + React + SASS Starter Kit
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-
-# 🚀 Laravel + React + SASS Starter App
-
-A simple starter application built using **Laravel (Backend API)**, **React (Frontend SPA)**, **Inertia.js**, and **SASS**.  
-This project is perfect for learning CRUD, authentication, middleware, protected routes, and modern full-stack workflows.
+A lightweight starter project using **Laravel (API Backend)**, **React + Inertia.js (SPA Frontend)**, and **SASS Styling**.  
+Ideal for learning modern full-stack development: Auth, CRUD, Routing, Middleware, Testing, and SPA workflows.
 
 ---
 
-## 📦 Tech Stack
+## 🧩 Tech Stack
 
-- **Laravel 12** – Backend API, Auth, Routing  
-- **React 18** – Frontend UI  
-- **Inertia.js** – Single-Page App (SPA) bridge  
-- **MySQL** – Database  
-- **SASS** – Custom styling  
-- **Vite** – Frontend bundler  
+| Layer | Tech |
+|-------|------|
+| Backend | Laravel 12, Sanctum Auth |
+| Frontend | React 18, Inertia.js |
+| Styling | SASS / Tailwind (via Vite) |
+| Build Tool | Vite |
+| DB | MySQL / SQLite |
+| Testing | PestPHP / PHPUnit |
 
 ---
 
-## 🔧 Installation & Setup
+## ⚙️ Installation
 
-### Clone the repo
 ```bash
+# 1️⃣ Clone
 git clone https://github.com/yourname/yourrepo.git
 cd yourrepo
 
-2️⃣ Install PHP dependencies
+# 2️⃣ Install backend
 composer install
 
-3️⃣ Install Node dependencies
+# 3️⃣ Install frontend
 npm install
 
-4️⃣ Create & configure .env
+# 4️⃣ Create env + key
 cp .env.example .env
 php artisan key:generate
 
-
-Update DB credentials:
-
+# 5️⃣ Configure Database (.env)
 DB_DATABASE=your_db
 DB_USERNAME=root
 DB_PASSWORD=
 
-5️⃣ Run migrations
+# 6️⃣ Migrate
 php artisan migrate
 
-6️⃣ Start the development servers
+# 7️⃣ Run Dev Servers
 npm run dev
 php artisan serve
 
+
 📁 Project Structure
-app/
-resources/
- ├── js/
- │    ├── Pages/      → React pages (Dashboard, Features etc.)
- │    ├── Components/ → Shared UI components
- │    └── Layouts/    → Main layouts
- └── sass/
-      └── app.scss    → SASS styles
-routes/
- ├── web.php          → Web routes
-public/
+app/                  ← Laravel backend (routes, controllers, models)
+resources/js/         ← React + Inertia SPA
+ ├─ Pages/            ← Page components
+ ├─ Components/       ← Shared UI
+ └─ Layouts/          ← App layouts
+resources/sass/       ← SASS styles
+routes/web.php        ← App routes
 
 🔐 Authentication
 
-This project uses Laravel Breeze for login, registration, password reset, and email verification.
+This project supports:
 
-To install Breeze (if not installed):
+Login / Register
+
+Logout
+
+Password Reset
+
+Email Verification (if enabled)
+
+If Breeze is not installed:
 
 composer require laravel/breeze
 php artisan breeze:install react
@@ -82,27 +77,46 @@ npm install && npm run dev
 
 ✨ Features
 
-✔ React pages using Inertia
-✔ Dashboard UI
-✔ SASS styling
-✔ Basic CRUD (example: users, cars)
-✔ Middleware example (role:admin)
-✔ Protected routes
-✔ Logout system
-✔ Components + layout system
+✔ Laravel + React SPA with Inertia
 
-🛠 Build for production
+✔ Authentication scaffolding
+
+✔ Pages, Layouts, Components structure
+
+✔ SASS styling support
+
+✔ Protected routes & middleware example
+
+✔ Ready for CRUD modules
+
+🧪 Stripe Test Payments (if enabled)
+
+Use test card to simulate payments:
+
+Field	Value
+Card Number	4242 4242 4242 4242
+Expiry	Any future date (12/34)
+CVC	Any (123)
+ZIP	Any (12345)
+🛠 Build for Production
 npm run build
-
-
-## For Testing 
-Card Number: 4242 4242 4242 4242
-Expiry Date: Any future date (e.g., 12/34)
-CVC: Any 3 digits (e.g., 123)
-ZIP: Any 5 digits (e.g., 12345)
+php artisan optimize
 
 📝 License
 
-This project is open-source and available under the MIT License.
+This project is open-source under the MIT License.
+
+🙋‍♂️ Contributing / Issues?
+
+Feel free to fork, improve, and open PRs.
+Happy coding! 🚀
 
 
+---
+
+If you want, I can also:
+✅ Add screenshots  
+✅ Add badges (Laravel version, dependencies, tests passing)  
+✅ Add deployment guide (shared hosting / VPS / Docker)  
+
+**Want a version that feels like a commercial SaaS starter?**
