@@ -22,7 +22,7 @@ Ideal for learning modern full-stack development: Auth, CRUD, Routing, Middlewar
 
 ```bash
 # 1️⃣ Clone
-git clone https://github.com/yourname/yourrepo.git
+git clone https://github.com/kamranzafar4343/laravel-react-sass.git
 cd yourrepo
 
 # 2️⃣ Install backend
@@ -110,13 +110,5 @@ This project is open-source under the MIT License.
 
 Feel free to fork, improve, and open PRs.
 Happy coding! 🚀
-
-
----
-
-If you want, I can also:
-✅ Add screenshots  
-✅ Add badges (Laravel version, dependencies, tests passing)  
-✅ Add deployment guide (shared hosting / VPS / Docker)  
 
 **Want a version that feels like a commercial SaaS starter?**
