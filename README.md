@@ -1,15 +1,26 @@
 📌 Laravel + React + SASS Starter Kit
 
-A minimal starter using Laravel (API Backend), React + Inertia.js (SPA Frontend), and SASS.
+A lightweight starter project using **Laravel (API Backend)**, **React + Inertia.js (SPA Frontend)**, and **SASS Styling**.  
 
-🧩 Tech Stack
-Layer	Tech
-Backend	Laravel 12, Sanctum
-Frontend	React 18, Inertia.js
-Styling	SASS / Tailwind via Vite
-Build	Vite
-Database	MySQL / SQLite
-Testing	PestPHP / PHPUnit
+---
+
+## 🧩 Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Backend | Laravel 12, Sanctum Auth |
+| Frontend | React 18, Inertia.js |
+| Styling | SASS / Tailwind (via Vite) |
+| Build Tool | Vite |
+| DB | MySQL / SQLite |
+| Testing | PestPHP / PHPUnit |
+
+---
+
+## ⚙️ Installation
+
+```bash
+
 📁 Project Structure
 app/                     ← Backend (controllers, models, logic)
 resources/
