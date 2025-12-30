@@ -35,21 +35,17 @@ routes/
 🔐 Authentication
 
 Login / Register
-
 Logout
 
 ✨ Features
 
 Laravel + React SPA (Inertia)
-
 SASS styling
-
 Protected routes & middleware
-
 CRUD-ready structure
 
-💳 Stripe Test Card (if enabled)
-Field	Value
+💳 Stripe Test Card(You can test with the following card)
+
 Card	4242 4242 4242 4242
 Expiry	12/34
 CVC	123
