@@ -6,6 +6,9 @@ class UserObserver
 {
     public function creating(User $user)
     {
-        $user->available_credits = 10;
+    if ($user->available_credits === null) {
+    $user->available_credits = 10;
+    }
+
     }
 }
