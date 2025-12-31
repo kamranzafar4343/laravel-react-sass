@@ -65,3 +65,15 @@ export default function Index({feature, answer}){
         </Feature>
     )
 }
+
+
+// Code Part	What it does
+// import { useForm }	Brings Inertia form helper for handling form state + POST requests
+// export default function Feature1(...)	This file is a page, exported so Inertia can load it
+// ({ user, credits })	These values come from the Laravel controller as props
+// useForm({...})	Initializes form state (number1, number2) like $request->input() in Laravel
+// handleSubmit()	Stops page reload and sends a POST request to Laravel
+// post('/feature1/calculate')	Hits your Laravel controller route for processing
+// <input ... setData()>	Updates state just like writing to $request->input()
+// processing	Locks button while waiting for Laravel response
+// errors.xxx	Shows validation errors from Laravel if form fails
