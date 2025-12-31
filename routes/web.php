@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
     Route::post('/feature1', [Feature1Controller::class, 'calculate'])->name('feature1.calculate');
     
     Route::get('/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
-    Route::post('/feature2', [Feature1Controller::class, 'calculate'])->name('feature2.calculate');
+    Route::post('/feature2', [Feature2Controller::class, 'calculate'])->name('feature2.calculate');
 
     Route::get('/buy-credits', [CreditController::class, 'index'])->name('credit.index');
    Route::get('/buy-credits/success', [CreditController::class, 'success'])
