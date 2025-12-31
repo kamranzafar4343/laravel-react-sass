@@ -35,7 +35,6 @@ class Feature1Controller extends Controller
             'number1' => ['required', 'numeric'],
             'number2' => ['required', 'numeric'],
         ]);
-
         
         $number1 = (float) $data['number1'];
         $number2 = (float) $data['number2'];
@@ -56,6 +55,14 @@ class Feature1Controller extends Controller
 
 
 // ✅ Feature1Controller — Very Simple Explanation
+
+// 1️⃣ constructor - -- - -- - - -
+// To load the Feature (name, cost, active) once.
+
+// To apply auth middleware once.
+
+// To avoid repeating code in both methods.
+
 // 1️⃣ index()
 
 // Shows the Feature 1 page.
@@ -70,10 +77,3 @@ class Feature1Controller extends Controller
 
 // Returns the result back to the page.
 
-// 3️⃣ Why it had a constructor
-
-// To load the Feature (name, cost, active) once.
-
-// To apply auth middleware once.
-
-// To avoid repeating code in both methods.
