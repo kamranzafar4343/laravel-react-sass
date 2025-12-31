@@ -7,11 +7,6 @@ export default function Index({auth,packages,features,success,error}) {
     return (
         <AuthenticatedLayout
             user={auth.user}
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    Your Credits
-                </h2>
-            }
         >
             <Head title="Your Credits" />
 
@@ -28,7 +23,7 @@ export default function Index({auth,packages,features,success,error}) {
                         </div>
                     )}
 
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg relative">
+                    {/* <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg relative">
                         <div className="flex flex-col gap-3 items-center p-4">
                             <img
                                 src="https://www.flaticon.com/free-icon/coin_10693001?term=coin&page=1&position=2&origin=tag&related_id=10693001"
@@ -40,7 +35,7 @@ export default function Index({auth,packages,features,success,error}) {
                                 You have {availableCredits} credits.
                             </h3>
                         </div>
-                    </div>
+                    </div> */}
 
                     <PackagesPricingCards
                         packages={packages.data}
