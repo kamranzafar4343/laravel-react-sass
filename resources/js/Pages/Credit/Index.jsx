@@ -31,12 +31,12 @@ export default function Index({auth,packages,features,success,error}) {
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg relative">
                         <div className="flex flex-col gap-3 items-center p-4">
                             <img
-                                src="/coin.jpeg"
+                                src="https://www.flaticon.com/free-icon/coin_10693001?term=coin&page=1&position=2&origin=tag&related_id=10693001"
                                 className="w-10 h-10 rounded-full border-2 border-gray-500 object-cover"
                                 alt="My Avatar"
                             />
 
-                            <h3 className="text-white text-2xl font-bold">
+                            <h3 className="text-grey text-2xl font-bold">
                                 You have {availableCredits} credits.
                             </h3>
                         </div>

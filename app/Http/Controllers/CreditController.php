@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 
 class CreditController extends Controller
 {
+    //display credit page
+    // Fetch all packages (credit plans) & Fetch active features
     public function index()
     {
         $packages = Package::all();
@@ -24,6 +26,13 @@ class CreditController extends Controller
 
     }
 
+    // Start Purchase (Stripe Checkout)
+    // Create Stripe checkout session with:
+    // package name, price, credits
+    // success and cancel URLs
+    // metadata (user + package info)
+    // Save a pending transaction in database
+    // Redirect user to Stripe payment page
     public function buyCredits(Package $package)
 {
     $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
@@ -73,6 +82,15 @@ class CreditController extends Controller
         return to_route('credit.index')
         ->with('error', 'There was an error. Please try again');
     }
+
+
+    // 🔴 Webhook: Final Credit Confirmation
+    // Stripe calls webhook after real payment
+    // Verify Stripe signature (auth check)
+    // Find matching pending transaction
+    // Mark it as paid
+    // Add credits to the user account
+    // Save updated credits
     public function webhook(){
 
         $endpoint_secret = env('STRIPE_WEBHOOK_KEY');
@@ -115,3 +133,18 @@ class CreditController extends Controller
         return response('');
     }
 }
+
+
+// 🎯 Overall Flow in 6 Steps
+
+// User selects credit package
+
+// Controller sends them to Stripe checkout
+
+// User pays → Stripe returns to success page
+
+// Stripe webhook confirms payment (backend call)
+
+// Transaction updated to "paid"
+
+// Credits added to user account
