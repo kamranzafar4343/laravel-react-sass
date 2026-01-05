@@ -8,7 +8,7 @@ use App\Models\Package;
 use App\Models\Feature;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log; // <-- Correct import
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class CreditController extends Controller
@@ -18,6 +18,7 @@ class CreditController extends Controller
      */
     public function index()
     {
+        
         $packages = Package::all();
         $features = Feature::where('active', true)->get();
 
@@ -97,12 +98,12 @@ class CreditController extends Controller
      */
     public function webhook()
     {
-        
-        Log::info("🔥 WEBHOOK RECEIVED");
 
         $endpoint_secret = env('STRIPE_WEBHOOK_KEY');
         $payload = @file_get_contents('php://input');
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? null;
+
+        $event = null;
 
         try {
             $event = \Stripe\Webhook::constructEvent(
@@ -111,22 +112,26 @@ class CreditController extends Controller
                 $endpoint_secret
             );
 
-        } catch (\Throwable $e) {
-            // Log::error("❌ Webhook signature verification failed: " . $e->getMessage());
-            // return response('', 400);
+        } catch (\UnexpectedValueException $e) {
+           //Invalid payload
+           return response('', 400);
+        }catch (\Stripe\Exception\SignatureVerificationException $e){
+            // invalid signature
+            return response('', 400);
         }
 
         switch ($event->type) {
             case 'checkout.session.completed':
-    Log::info("💸 Checkout completed — updating credits");
-    $session = $event->data->object;
+   
+                $session = $event->data->object;
+
+                Log::info('STRIPE SESSION ID: ' . $session->id);
+Log::info('ALL DB SESSION IDS: ' . Transaction::pluck('session_id')->implode(','));
+
 
     $transaction = Transaction::where('session_id', $session->id)->first();
 
     if ($transaction && $transaction->status === 'pending') {
-
-        Log::info("SESSION ID: " . $session->id);
-        Log::info("USER BEFORE: " . $transaction->user->available_credits);
 
         $transaction->status = 'paid';
         $transaction->save();
@@ -134,16 +139,10 @@ class CreditController extends Controller
         $transaction->user->available_credits += $transaction->credits;
         $transaction->user->save();
 
-        Log::info("USER AFTER: " . $transaction->user->fresh()->available_credits);
-        Log::info("🎉 Credits added successfully for user: " . $transaction->user_id);
-    } else {
-        Log::warning("⚠️ No matching pending transaction found OR already paid.");
-    }
-    break;
-
+       }
 
             default:
-                Log::info("ℹ️ Ignored event type: " . $event->type);
+                echo 'Received unknown event' . $event->type;
         }
 
         return response('ok', 200);
