@@ -140,7 +140,6 @@ Log::info('ALL DB SESSION IDS: ' . Transaction::pluck('session_id')->implode(','
         $transaction->user->save();
 
        }
-
             default:
                 echo 'Received unknown event' . $event->type;
         }
