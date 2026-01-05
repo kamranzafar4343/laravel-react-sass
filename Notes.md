@@ -38,7 +38,15 @@ stripe listen --forward-to http://127.0.0.1:8000/buy-credits/webhook
 STRIPE_WEBHOOK_KEY  ==  ???
 
 And then setup this key in ur .env 
-whsec_c0422222222222222222343243243243243243205e………
+Whsec_c0422222222222222222343243243243243243205e………
 
-  Open CreditController.php and add 
-   
+
+ Enter command of stripe in the terminal  (vs code)
+Stripe login
+
+stripe listen --forward-to http://127.0.0.1:8000/buy-credits/webhook
+
+Now just buy some plan in the system
+
+And you can see POST requests with 200 success code 
+
